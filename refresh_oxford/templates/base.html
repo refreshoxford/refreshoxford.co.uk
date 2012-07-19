@@ -26,6 +26,8 @@
 
   {# Include your plugins before main.js and your other JS after main.js #}
 
+  <script src="{{ STATIC_URL }}scripts/plugins/fontdetect.js"></script>
+  <script src="{{ STATIC_URL }}scripts/plugins/jquery.placeholder.min.js"></script>
   <script src="{{ STATIC_URL }}scripts/main.js"></script>
 
   {% block extra_script %}{% endblock extra_script %}

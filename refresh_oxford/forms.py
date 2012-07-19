@@ -1,5 +1,5 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Submit
+from crispy_forms.layout import Layout, Field, Fieldset, Submit
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
@@ -14,10 +14,10 @@ class SignUpForm(forms.ModelForm):
     helper.form_method = 'post'
     helper.layout = Layout(
         Fieldset('',
-            'name',
-            'email',
-            'github_username',
-            'extra',
-            Submit('submit', _('Sign Up'), css_class='submit'),
+            Field('name', placeholder='Name*'),
+            Field('email', placeholder='Email address*'),
+            Field('github_username', placeholder='GitHub User (Optional)'),
+            Field('extra', placeholder='Anything else? Dietary requirements etc.'),
+            Submit('submit', _('Sign Up!'), css_class='submit'),
         )
     )
