@@ -1,0 +1,21 @@
+footer
+  background:  #eee url('../images/dashed-line.png') center top repeat-x
+  font:
+    size: 12px
+  padding: 20px
+  p
+    max-width: 360px
+    margin: -5px auto 0 auto
+    text-align: left
+    a
+      text-decoration: none
+      font-weight: 700
+      &:hover
+        color: $main-color
+        text-decoration: underline
+      &:after
+        content: ' |'
+      &:last-child
+        &:after
+          content: ''
+

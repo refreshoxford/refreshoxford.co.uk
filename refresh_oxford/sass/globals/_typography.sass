@@ -1,0 +1,52 @@
+h2, h3, h4, h5, h6
+  text-align: center
+  font-weight: normal
+  color: $main-color
+h2
+  background:  url('../images/dashed-line.png') center top repeat-x
+  padding-top: 20px
+  text-transform: uppercase
+  font:
+    family: $main-font
+    size: 28px
+h3
+  font-weight: 700
+  &.invited
+    background:  url('../images/and.png') center center no-repeat
+    line-height: 105px
+    height: 105px
+    font:
+      family: $cursive-font
+      style: italic
+      size: 36px
+p
+  line-height: 25px
+  &.address
+    text-align: center
+a
+  color: $main-color
+  &:hover
+    color: #00CC99
+.register
+  a
+    display: block
+    background-color: #00CC99
+    color: #fff
+    font-family: $main-font
+    font-size: 25px
+    text:
+      align: center
+      transform: uppercase
+    width: 106px
+    height: 46px
+    padding: 30px 0
+    @include border-radius(106px)
+    margin: 0 auto
+
+label
+  font-family: $cursive-font
+  font-style: italic
+  font-size: 20px
+
+span
+  color: #00CC99
