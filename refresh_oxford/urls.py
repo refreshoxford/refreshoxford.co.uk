@@ -2,6 +2,7 @@ from django.conf.urls import *
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 
 from .views import SignUp
 
