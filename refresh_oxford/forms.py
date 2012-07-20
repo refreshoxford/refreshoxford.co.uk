@@ -17,7 +17,7 @@ class SignUpForm(forms.ModelForm):
             Field('name', placeholder='Name*'),
             Field('email', placeholder='Email address*'),
             Field('github_username', placeholder='GitHub User (Optional)'),
-            Field('extra', placeholder='Anything else? Dietary requirements etc.'),
+            Field('extra', rows='5', placeholder='Anything else? Dietary requirements etc.'),
             Submit('submit', _('Sign Up!'), css_class='submit'),
         )
     )
