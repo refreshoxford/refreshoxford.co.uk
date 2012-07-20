@@ -297,27 +297,28 @@ h3.invited {
   font-family: "Adobe Caslon Pro", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
   font-size: 36px;
+  font-weight: normal;
 }
 
-/* line 25, ../../sass/globals/_typography.sass */
+/* line 26, ../../sass/globals/_typography.sass */
 p {
   line-height: 25px;
 }
-/* line 27, ../../sass/globals/_typography.sass */
+/* line 28, ../../sass/globals/_typography.sass */
 p.address {
   text-align: center;
 }
 
-/* line 29, ../../sass/globals/_typography.sass */
+/* line 30, ../../sass/globals/_typography.sass */
 a {
   color: #333333;
 }
-/* line 31, ../../sass/globals/_typography.sass */
+/* line 32, ../../sass/globals/_typography.sass */
 a:hover {
   color: #00cc99;
 }
 
-/* line 34, ../../sass/globals/_typography.sass */
+/* line 35, ../../sass/globals/_typography.sass */
 .register a {
   display: block;
   background-color: #00cc99;
@@ -337,7 +338,7 @@ a:hover {
   margin: 0 auto;
 }
 
-/* line 49, ../../sass/globals/_typography.sass */
+/* line 50, ../../sass/globals/_typography.sass */
 .signup-greeting {
   font-family: "Adobe Caslon Pro", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
@@ -352,25 +353,25 @@ a:hover {
   max-width: 360px;
   z-index: -1;
 }
-/* line 63, ../../sass/globals/_typography.sass */
+/* line 64, ../../sass/globals/_typography.sass */
 .signup-greeting.smaller {
   font-size: 80px;
   bottom: -180px;
 }
 
-/* line 68, ../../sass/globals/_typography.sass */
+/* line 69, ../../sass/globals/_typography.sass */
 label {
   font-family: "Adobe Caslon Pro", Georgia, Times, "Times New Roman", serif;
   font-style: italic;
   font-size: 20px;
 }
 
-/* line 73, ../../sass/globals/_typography.sass */
+/* line 74, ../../sass/globals/_typography.sass */
 textarea {
   line-height: 1.2em;
 }
 
-/* line 76, ../../sass/globals/_typography.sass */
+/* line 77, ../../sass/globals/_typography.sass */
 .help-inline {
   float: right;
   font-size: 12px;
