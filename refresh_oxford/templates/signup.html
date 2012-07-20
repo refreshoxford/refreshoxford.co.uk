@@ -1,15 +1,14 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
 {% block page_title %}
 <h2>Refresh Oxford
     <span>18th August</span>
     <span>09:30 - 20:45</span>
 </h2>
 {% endblock page_title %}
-{% block content %}
-<form method="post" action="{% url signup %}">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Sign Up" class="submit" />
-</form>
-{% endblock %}
 
+{% block content %}
+    {% crispy form %}
+    <p class="signup-greeting">See you on the 18th!</p>
+{% endblock %}

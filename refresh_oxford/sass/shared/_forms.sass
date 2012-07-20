@@ -36,7 +36,7 @@ legend
 
 // Identify controls by their labels
 label
-  display: block
+  display: none
   margin-bottom: 5px
 
 // Inputs, Textareas, Selects
@@ -45,15 +45,20 @@ textarea,
 select,
 .uneditable-input
   @include inline-block
-  width: 210px
-  height: 18px
+  width: 100%
   padding: 4px
   margin-bottom: 9px
-  line-height: 18px
   color: $grey
-  border: 1px solid $grey
+  background: none
+  border: 0
+  border-bottom: 1px solid #d4d4d4
+  resize: none
   font:
-    family: $base-family
+    family: $cursive-font
+    style: italic
+    size: 20px
+  &:focus
+    outline: none
 
 .uneditable-textarea
   width: auto
