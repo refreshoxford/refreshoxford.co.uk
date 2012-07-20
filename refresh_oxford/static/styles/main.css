@@ -972,6 +972,63 @@ input[type="reset"] {
   margin: 0 auto;
 }
 
+/* line 1, ../../sass/shared/_messages.sass */
+.messages {
+  margin: 0;
+  padding: 0;
+}
+/* line 4, ../../sass/shared/_messages.sass */
+.messages li {
+  list-style: none;
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 18px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid black;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  position: relative;
+}
+/* line 12, ../../sass/shared/_messages.sass */
+.messages li.info {
+  color: #c09853;
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+}
+/* line 17, ../../sass/shared/_messages.sass */
+.messages li.success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+/* line 22, ../../sass/shared/_messages.sass */
+.messages li.error, .messages li.warning {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+/* line 27, ../../sass/shared/_messages.sass */
+.messages .message-close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 18px;
+  color: black;
+  text-shadow: 0 1px 0 white;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  opacity: 0.2;
+}
+/* line 39, ../../sass/shared/_messages.sass */
+.messages .message-close:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+}
+
 @media print {
   /* line 7, ../../sass/plugins/_print.sass */
   * {
