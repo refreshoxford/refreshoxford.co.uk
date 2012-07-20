@@ -385,10 +385,15 @@ body {
 /* line 4, ../../sass/globals/_structure.sass */
 #wrap {
   max-width: 360px;
-  margin: 40px auto 40px auto;
+  min-height: 100%;
+  margin: 0 auto;
 }
 
 /* line 9, ../../sass/globals/_structure.sass */
+#site-main {
+  padding-bottom: 90px;
+}
+/* line 11, ../../sass/globals/_structure.sass */
 #site-main .structure {
   position: relative;
 }
@@ -396,37 +401,54 @@ body {
 /* line 1, ../../sass/components/_header.sass */
 #site-header {
   height: 70px;
-  background: url("../images/ro-logo.png") center top no-repeat;
+  background: url("../images/ro-logo.png") center 40px no-repeat;
+  padding-top: 40px;
 }
 
 /* line 1, ../../sass/components/_footer.sass */
 footer {
   background: #eeeeee url("../images/dashed-line.png") center top repeat-x;
   font-size: 12px;
-  padding: 20px;
+  position: relative;
+  margin-top: -90px;
+  height: 90px;
+  zoom: 1;
 }
-/* line 6, ../../sass/components/_footer.sass */
+/* line 3, ../../sass/globals/_mixins.sass */
+footer:before, footer:after {
+  content: "";
+  display: table;
+}
+/* line 6, ../../sass/globals/_mixins.sass */
+footer:after {
+  clear: both;
+}
+/* line 9, ../../sass/components/_footer.sass */
+footer .structure {
+  margin-top: 20px;
+}
+/* line 11, ../../sass/components/_footer.sass */
 footer p {
   max-width: 360px;
   margin: -5px auto 0 auto;
   text-align: left;
 }
-/* line 10, ../../sass/components/_footer.sass */
+/* line 15, ../../sass/components/_footer.sass */
 footer p a {
   text-decoration: none;
   font-weight: 700;
 }
-/* line 13, ../../sass/components/_footer.sass */
+/* line 18, ../../sass/components/_footer.sass */
 footer p a:hover {
   color: #333333;
   text-decoration: underline;
 }
-/* line 16, ../../sass/components/_footer.sass */
-footer p a:after {
-  content: " |";
+/* line 21, ../../sass/components/_footer.sass */
+footer p a:before {
+  content: "| ";
 }
-/* line 19, ../../sass/components/_footer.sass */
-footer p a:last-child:after {
+/* line 24, ../../sass/components/_footer.sass */
+footer p a:first-child:before {
   content: "";
 }
 
