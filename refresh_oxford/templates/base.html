@@ -1,6 +1,7 @@
 <!doctype html>
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+{% load feincms_tags %}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -73,7 +74,7 @@
                     {% endblock page_title %}
                     {% block page_content %}
                     {% block content %}
-
+                        {% feincms_render_region feincms_page 'main' request %}
                     {% endblock content %}
                     {% endblock page_content %}
                 </div>
@@ -87,7 +88,7 @@
     <div class="structure">
         {% block footer_content %}
         <p>&copy; Copyright 2012 Incuna Ltd. All rights reserved</p>
-        <p><a href="{% url terms %}">Terms &amp; Conditions</a> <a href="{% url code-of-conduct %}">Code of Conduct</a></p>
+        <p><a href="{% url terms %}">Terms &amp; Conditions</a> <a href="/code-of-conduct/">Code of Conduct</a></p>
         {% endblock footer_content %}
     </div>
     </footer>
