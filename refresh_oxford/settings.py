@@ -89,6 +89,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'feincms',
     'feincms.module.page',
+    'gravatar',
     'gunicorn',
     'raven.contrib.django',
 
