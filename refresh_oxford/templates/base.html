@@ -69,9 +69,7 @@
                 {% endblock messages %}
                 {% endif %}
                 <div class="structure">
-                    {% block page_title %}
-                    <h2>What is Refresh Oxford?</h2>
-                    {% endblock page_title %}
+                    <h2>{% block page_title %}{{ feincms_page.title }}{% endblock page_title %}</h2>
                     {% block page_content %}
                     {% block content %}
                         {% feincms_render_region feincms_page 'main' request %}
