@@ -69,7 +69,7 @@ MIDDLEWARE_CLASSES = (
 
 AUTHENTICATION_BACKENDS = (
     'admin_sso.auth.DjangoSSOAuthBackend',
-    'incuna_auth.backends.CustomUserModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 ROOT_URLCONF = 'refresh_oxford.urls'
