@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
 {% load gravatar %}
 
 {% block page_title %}What is Refresh Oxford?{% endblock %}
@@ -12,9 +13,17 @@
 <a href="http://goo.gl/maps/VXeF">16 Middle Way, Oxford, OX2 7LH</a>  *It’s free!*</p>
 <p class="register"><a href="{% url signup %}">Register Now!</a></p>
 
+{% if attendees %}
 <h2>So Who's Coming?</h2>
 {% for attendee in attendees %}
     <img src="{% gravatar_for_email attendee.email %}">
 {% endfor %}
+{% endif %}
+
+<h2>Can't make this one?</h2>
+<p>That's too bad! Sign-up to our mailing list to find out when the next Refresh Oxford is going to happen...</p>
+
+{% crispy form %}
+
 {% endblock %}
 

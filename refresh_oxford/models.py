@@ -14,6 +14,14 @@ class Attendee(models.Model):
         return self.name
 
 
+class MailingListPerson(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255, unique=True)
+
+    def __unicode__(self):
+        return self.name
+
+
 Page.register_templates(
     {
         'key': '1col',

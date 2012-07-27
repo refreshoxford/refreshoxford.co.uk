@@ -1,13 +1,14 @@
 from django.contrib import messages
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
-from .forms import SignUpForm
+from .forms import MailingListForm, SignUpForm
 from .models import Attendee
 
 
 class Home(CreateView):
-    form_class = None
-    model = None
+    form_class = MailingListForm
+    model = Attendee
+    success_url = '/'
     template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
