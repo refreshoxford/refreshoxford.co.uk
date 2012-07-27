@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     url(r'^signup/$', SignUp.as_view(), name='signup'),
     url(r'favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'static/favicon.ico')),
     url(r'^admin/', include(admin.site.urls)),
+
+    url('', include('feincms.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

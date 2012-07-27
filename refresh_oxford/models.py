@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
+from feincms.content.richtext.models import RichTextContent
+from feincms.module.page.models import Page
 
 
 class Attendee(models.Model):
@@ -9,3 +12,17 @@ class Attendee(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+Page.register_templates(
+    {
+        'key': '1col',
+        'title': _('One column'),
+        'path': 'base.html',
+        'regions': (
+            ('main', _('Main content')),
+        ),
+    },
+)
+Page.create_content_type(RichTextContent)
+

@@ -87,6 +87,8 @@ INSTALLED_APPS = (
     'south',
     'debug_toolbar',
     'django_extensions',
+    'feincms',
+    'feincms.module.page',
     'gunicorn',
     'raven.contrib.django',
 
@@ -129,4 +131,9 @@ LOGGING = {
 # Debug Toolbar
 DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
 INTERNAL_IPS = ('127.0.0.1',)
+
+# FeinCMS
+FEINCMS_RICHTEXT_INIT_CONTEXT = {
+    'TINYMCE_JS_URL': STATIC_URL + 'scripts/tiny_mce/tiny_mce.js',
+}
 
