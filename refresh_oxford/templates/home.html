@@ -16,7 +16,7 @@
 {% if attendees %}
 <h2>So Who's Coming?</h2>
 {% for attendee in attendees %}
-    <img src="{% gravatar_for_email attendee.email %}">
+    <img src="{% gravatar_for_email attendee.email %}" alt="{{ attendee.name }}">
 {% endfor %}
 {% endif %}
 
