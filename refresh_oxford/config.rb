@@ -16,6 +16,6 @@ http_generated_images_path = '../images'
 # relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
-# line_comments = false
+line_comments = false
 
 preferred_syntax = :sass
