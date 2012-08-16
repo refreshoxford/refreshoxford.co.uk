@@ -10,6 +10,9 @@ class Attendee(models.Model):
     github_username = models.CharField(max_length=255, null=True, blank=True)
     extra = models.TextField(null=True, blank=True)
 
+    class Meta:
+        ordering = ('pk',)
+
     def __unicode__(self):
         return self.name
 
