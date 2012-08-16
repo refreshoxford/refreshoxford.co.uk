@@ -1,15 +1,20 @@
 from django.contrib import messages
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView
 
 from .forms import MailingListForm, SignUpForm
-from .models import Attendee
+from .models import Attendee, MailingListPerson
 
 
 class Home(CreateView):
     form_class = MailingListForm
-    model = Attendee
+    model = MailingListPerson
     success_url = '/'
     template_name = 'home.html'
+
+    def form_valid(self, form):
+        msg = "Thanks for signing up for emails, we'll send you deails about any future emails"
+        messages.info(self.request, msg)
+        return super(Home, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super(Home, self).get_context_data(**kwargs)
