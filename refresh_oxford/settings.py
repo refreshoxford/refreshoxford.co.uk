@@ -37,14 +37,14 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', 'refresh-oxf
 AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
 AWS_CLOUDFRONT_STREAMING_DOMAIN = os.environ.get('AWS_CLOUDFRONT_STREAMING_DOMAIN')
 DEFAULT_FILE_STORAGE = os.environ.get('DEFAULT_FILE_STORAGE', 'queued_storage.backends.QueuedS3BotoStorage')
-STATICFILES_STORAGE = 'incuna_storages.backends.S3StaticStorage'
+STATICFILES_STORAGE = os.environ.get('STATICFILES_STORAGE', 'incuna_storages.backends.S3StaticStorage')
 S3_URL = 'http://{0}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
 
 # Static
 MEDIA_ROOT = os.path.join(DIRNAME, 'client_media')
 MEDIA_URL = '/client_media/'
 STATIC_ROOT = os.path.join(DIRNAME, 'static_media')
-STATIC_URL = os.environ.get('STATIC_URL', S3_URL)
+STATIC_URL = os.environ.get('STATIC_URL', S3_URL + 'static/')
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
