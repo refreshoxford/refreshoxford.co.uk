@@ -19,7 +19,7 @@ class Home(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(Home, self).get_context_data(**kwargs)
-        context['attendees'] = Attendee.objects.all()
+        context['event'] = Event.objects.current()
         return context
 
 
