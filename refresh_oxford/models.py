@@ -19,6 +19,14 @@ class Attendee(models.Model):
         return self.name
 
 
+class EventManager(models.Manager):
+    def current(self):
+        try:
+            return self.get_query_set().filter(current=True)[0]
+        except IndexError:
+            return self.get_query_set().none()
+
+
 class Event(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -26,6 +34,8 @@ class Event(models.Model):
     start = models.DateTimeField()
     finish = models.DateTimeField()
     current = models.BooleanField(default=False)
+
+    objects = EventManager()
 
     class Meta:
         ordering = ['start']
