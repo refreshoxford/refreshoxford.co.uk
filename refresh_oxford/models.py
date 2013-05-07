@@ -5,13 +5,29 @@ from feincms.module.page.models import Page
 
 
 class Attendee(models.Model):
+    event = models.ForeignKey('Event')
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255, unique=True)
     github_username = models.CharField(max_length=255, null=True, blank=True)
     extra = models.TextField(null=True, blank=True)
 
     class Meta:
-        ordering = ('pk',)
+        ordering = ['pk']
+
+    def __unicode__(self):
+        return self.name
+
+
+class Event(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    where = models.TextField()
+    start = models.DateTimeField()
+    finish = models.DateTimeField()
+    current = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['start']
 
     def __unicode__(self):
         return self.name
@@ -36,4 +52,3 @@ Page.register_templates(
     },
 )
 Page.create_content_type(RichTextContent)
-
