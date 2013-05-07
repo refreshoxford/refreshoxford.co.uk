@@ -6,10 +6,9 @@
 {% block page_title %}What is Refresh Oxford?{% endblock %}
 
 {% block content %}
-<p>Refresh Oxford is Oxford's premier hackday event where the best developers, designers, front-enders, UX-ers and anyone else who works with the web comes together to create amazing projects in just one day. Hosted by digital agency <a href="http://incuna.com/">Incuna</a> in our Summertown, Oxford office we'll provide the space, good food and drinks…</p>
+<p>Refresh Oxford is Oxford's premier hackday event where the best developers, designers, front-endersand UX-ers come together to create amazing projects in just one day. Hosted by digital agency <a href="http://incuna.com/">Incuna</a> we'll provide the space, good food and drinks…</p>
 
 {% if event %}
-
     <h3 class="invited">You're invited!</h3>
     <p class="address">{{ event.start|date:"l, F j, Y" }} from: {{ event.start|date:"H:i" }} — {{ event.finish|date:"H:i" }}<br>
     {% if event.map %}<a href="{{ event.map }}">{{ event.where }}</a>{% endif %}  *It’s free!*</p>
@@ -23,7 +22,11 @@
     {% endif %}
 {% endif %}
 
+{% if event %}
 <h2>Can't make this one?</h2>
+{% else %}
+<h2>Nothing coming up =(</h2>
+{% endif %}
 <p>That's too bad! Sign-up to our mailing list to find out when the next Refresh Oxford is going to happen...</p>
 
 {% crispy form %}

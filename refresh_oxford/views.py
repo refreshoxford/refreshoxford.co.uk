@@ -1,9 +1,19 @@
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView, ListView
 
 from .forms import MailingListForm, SignUpForm
 from .models import Attendee, Event, MailingListPerson
+
+
+class EventDetail(DetailView):
+    model = Event
+    template_name = 'event_detail.html'
+
+
+class EventList(ListView):
+    model = Event
+    template_name = 'event_list.html'
 
 
 class Home(CreateView):
