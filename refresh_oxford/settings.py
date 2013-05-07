@@ -3,7 +3,6 @@ import os
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 import dj_database_url
-from S3 import CallingFormat
 
 
 DIRNAME = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
@@ -28,19 +27,24 @@ LANGUAGE_CODE = 'en-GB'
 USE_I18N = False  # Internationalization
 
 # AWS
-if not DEBUG:
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    S3_URL = 'http://{0}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_LOCATION = os.environ.get('AWS_LOCATION', '')
+AWS_S3_SECURE_URLS = False
+AWS_PRELOAD_METADATA = True
+AWS_QUERYSTRING_AUTH = False
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', 'refresh-oxford')
+AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
+AWS_CLOUDFRONT_STREAMING_DOMAIN = os.environ.get('AWS_CLOUDFRONT_STREAMING_DOMAIN')
+DEFAULT_FILE_STORAGE = os.environ.get('DEFAULT_FILE_STORAGE', 'queued_storage.backends.QueuedS3BotoStorage')
+STATICFILES_STORAGE = 'incuna_storages.backends.S3StaticStorage'
+S3_URL = 'http://{0}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
 
 # Static
 MEDIA_ROOT = os.path.join(DIRNAME, 'client_media')
 MEDIA_URL = '/client_media/'
 STATIC_ROOT = os.path.join(DIRNAME, 'static_media')
-STATIC_URL = '/static/' if DEBUG else S3_URL
+STATIC_URL = os.environ.get('STATIC_URL', S3_URL)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -103,8 +107,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 )
 
-SENTRY_DSN = 'http://6ca204de023846108a3ae330bfe74ef5:c6060bcafb4f4a22989f7d7470dc77d4@sentry.incuna.com/21'
-SENTRY_TESTING = DEBUG
+SENTRY_DSN = os.environ.get('SENTRY_DSN')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -137,4 +140,3 @@ INTERNAL_IPS = ('127.0.0.1',)
 FEINCMS_RICHTEXT_INIT_CONTEXT = {
     'TINYMCE_JS_URL': STATIC_URL + 'scripts/tiny_mce/tiny_mce.js',
 }
-
