@@ -111,23 +111,42 @@ SENTRY_DSN = os.environ.get('SENTRY_DSN')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '[%(asctime)s][%(levelname)s] %(name)s %(filename)s:%(funcName)s:%(lineno)d | %(message)s',
+            'datefmt': '%H:%M:%S',
+        },
+    },
     'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
+        'require_debug_false': {'()': 'django.utils.log.RequireDebugFalse'}
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
+        'sentry': {
+            'level': 'DEBUG',
             'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
+            'class': 'raven.contrib.django.handlers.SentryHandler'
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'console',
+        },
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['sentry', 'console'],
             'level': 'ERROR',
             'propagate': True,
+        },
+        'incuna.default': {
+            'handlers': ['sentry', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'sentry.errors': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propogate': True,
         },
     }
 }
