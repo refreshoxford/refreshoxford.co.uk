@@ -5,7 +5,7 @@ from feincms.module.page.models import Page
 
 
 class Attendee(models.Model):
-    event = models.ForeignKey('Event')
+    event = models.ForeignKey('Event', blank=True)
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     github_username = models.CharField(max_length=255, null=True, blank=True)

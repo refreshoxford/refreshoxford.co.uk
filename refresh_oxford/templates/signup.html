@@ -3,8 +3,8 @@
 
 {% block page_title %}
 <h2>Refresh Oxford
-    <span>18th August</span>
-    <span>09:30 - 20:45</span>
+    <span>{{ event.start|date:"jS F" }}</span>
+    <span>{{ event.start|date:"H:i" }} - {{ event.finish|date:"H:i" }}</span>
 </h2>
 {% endblock page_title %}
 

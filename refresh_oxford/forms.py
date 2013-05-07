@@ -23,6 +23,7 @@ class MailingListForm(forms.ModelForm):
 
 class SignUpForm(forms.ModelForm):
     class Meta:
+        fields = ('name', 'email', 'github_username', 'extra')
         model = Attendee
 
     helper = FormHelper()
