@@ -12,6 +12,8 @@ DEVELOPMENT_SITE = bool(os.environ.get('DEVELOPMENT_SITE', False))
 
 DATABASES = {'default': dj_database_url.config(default='postgres://localhost/refresh_oxford')}
 
+ALLOWED_HOSTS = ['www.refreshoxford.co.uk', 'refresh-oxford.herokuapp.com']
+
 ADMINS = (('Admin', 'bugs@incuna.com'),)
 MANAGERS = ADMINS
 ADMIN_EMAILS = zip(*ADMINS)[1]
