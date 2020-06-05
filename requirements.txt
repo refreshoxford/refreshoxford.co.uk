@@ -8,7 +8,7 @@ django-extensions==1.1.1
 django-gravatar==0.1.0
 django-mptt==0.5.5
 django-storages==1.1.8
-django==1.5.1
+django==1.11.29
 feincms==1.7.4
 gunicorn==0.17.4
 incuna-storages==1.1
